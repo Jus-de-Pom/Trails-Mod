@@ -1,0 +1,40 @@
+{
+  "level": 4,
+  "pattern": [
+    "fff",
+    "lwl",
+    "s#s",
+    "w#w"
+  ],
+
+  "blocks": {
+    "f": {
+      "tag": "minecraft:wooden_fences"
+    },
+
+    "l": {
+      "block": "minecraft:lantern",
+      "states": {
+        "hanging": true
+      }
+    },
+
+    "w": {
+      "tag": "minecraft:walls"
+    },
+
+    "s": {
+      "block": "minecraft:smooth_stone_slab",
+      "states": {
+        "type": "bottom"
+      }
+    },
+
+    "#": {
+      "tag": "minecraft:logs",
+      "states": {
+        "axis": "y"
+      }
+    }
+  }
+}

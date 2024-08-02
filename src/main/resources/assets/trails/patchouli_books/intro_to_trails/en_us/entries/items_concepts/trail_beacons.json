@@ -1,0 +1,97 @@
+{
+  "name": "Trail Beacons",
+  "icon": "minecraft:cartography_table",
+  "category": "trails:items_concepts",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Trail Beacons, they are what make your trails. But they come in all shapes and sizes, so this is your guide to build them. $(br2)The following pages show you how to build the trail beacons, from level 1 to level 5. Levels will make sense in the Trails: Hikers addon. Ignore the fences looking weird on the previews of the next few pages"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "0" ],
+          [ "F" ]
+        ],
+        "mapping": {
+          "0": "minecraft:torch",
+          "F": "#minecraft:wooden_fences"
+        }
+      },
+      "text": "This is the level 1 Wooden Beacon. It is cheap, and a great starter"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "multiblock": {
+        "pattern": [
+          [ " L " ],
+          [ "F0F" ]
+        ],
+        "mapping": {
+          "L": "minecraft:lantern[hanging=false]",
+          "F": "#minecraft:wooden_fences",
+          "0": "#minecraft:logs"
+        }
+      },
+      "text": "That's a level 2 beacon, slightly more complicated than level 1"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "LSL" ],
+          [ "W0W" ]
+        ],
+        "mapping": {
+          "L": "minecraft:lantern[hanging=false]",
+          "S": "#minecraft:wooden_slabs[type=bottom]",
+          "W": "#minecraft:walls",
+          "0": "#minecraft:logs"
+        }
+      },
+      "text": "Level 3 beacon, starting to see cobblestone !"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "FFF" ],
+          [ "LWL" ],
+          [ "S0S" ],
+          [ "W#W" ]
+        ],
+        "mapping": {
+          "F": "#minecraft:wooden_fences",
+          "L": "minecraft:lantern[hanging=true]",
+          "W": "#minecraft:walls",
+          "S": "minecraft:smooth_stone_slab[type=bottom]",
+          "#": "#minecraft:logs[axis=y]",
+          "0": "#minecraft:logs[axis=y]"
+        }
+      },
+      "text": "It's level 4 because the smooth stone slabs are annoying to make :("
+    },
+    {
+      "type": "patchouli:multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "ASA" ],
+          [ "ALA" ],
+          [ "AWA" ],
+          [ "A0A" ],
+          [ "W#W" ]
+        ],
+        "mapping": {
+          "A": "minecraft:air",
+          "S": "minecraft:daylight_detector[inverted=true]",
+          "L": "minecraft:redstone_lamp",
+          "W": "#minecraft:walls",
+          "#": "#minecraft:logs[axis=y]",
+          "0": "#minecraft:logs[axis=y]"
+        }
+      },
+      "text": "You have to go to the nether to build a level 5 wooden beacon !"
+    }
+  ]
+}

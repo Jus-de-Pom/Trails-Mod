@@ -1,0 +1,15 @@
+{
+  "level": 1,
+  "pattern": [
+    "t",
+    "f"
+  ],
+  "blocks":{
+    "t": {
+      "block": "minecraft:torch"
+    },
+    "f": {
+      "tag": "minecraft:fences"
+    }
+  }
+}

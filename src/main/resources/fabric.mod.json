@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "trails",
+	"version": "${version}",
+	"name": "Trails",
+	"description": "Create trails around your world ! Functionalities will be added in other addons for this mod",
+	"authors": [
+		"Jus de Pwar"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/trails/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"fr.jusdepom.trailsmod.Trails"
+		],
+		"fabric-datagen": [
+			"fr.jusdepom.trailsmod.TrailsDataGenerator"
+		],
+		"client": [
+			"fr.jusdepom.trailsmod.TrailsClient"
+		]
+	},
+	"mixins": [
+		"trails.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

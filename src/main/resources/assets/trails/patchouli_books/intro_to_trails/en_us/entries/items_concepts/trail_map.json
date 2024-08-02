@@ -1,0 +1,17 @@
+{
+  "name": "Trail Map",
+  "icon": "trails:trail_map",
+  "category": "trails:items_concepts",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Trails mod only adds one item: the Trail Map. It allows you to map all your trails for further use. $(br2)To use it, click the center block of a trail beacon (see the corresponding category). Once you clicked on every beacon of your trail, you can combine it with a map in the Cartography table and little dots will appear on the map, showing your beacons. The dots are the color your trail map is (remember: you can dye it)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "trails:trail_map",
+      "title": "How to craft it",
+      "text": "It is crafted as shown on the next page, and is also dyeable !"
+    }
+  ]
+}

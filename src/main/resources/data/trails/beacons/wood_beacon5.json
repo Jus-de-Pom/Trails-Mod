@@ -1,0 +1,38 @@
+{
+  "level": 5,
+  "pattern": [
+    "asa",
+    "ala",
+    "awa",
+    "a#a",
+    "w#w"
+  ],
+
+  "blocks": {
+    "a": {
+      "block": "minecraft:air"
+    },
+
+    "s": {
+      "block": "daylight_detector",
+      "states": {
+        "inverted": true
+      }
+    },
+
+    "l": {
+      "block": "minecraft:redstone_lamp"
+    },
+
+    "w": {
+      "tag": "minecraft:walls"
+    },
+
+    "#": {
+      "tag": "minecraft:logs",
+      "states": {
+        "axis": "y"
+      }
+    }
+  }
+}

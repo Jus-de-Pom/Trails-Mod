@@ -1,0 +1,23 @@
+{
+  "level": 2,
+  "pattern": [
+    " l ",
+    "fwf"
+  ],
+  "blocks": {
+    "l": {
+      "block": "minecraft:lantern",
+      "states": {
+        "hanging": false
+      }
+    },
+
+    "f": {
+      "tag": "minecraft:wooden_fences"
+    },
+
+    "w": {
+      "tag": "minecraft:logs"
+    }
+  }
+}

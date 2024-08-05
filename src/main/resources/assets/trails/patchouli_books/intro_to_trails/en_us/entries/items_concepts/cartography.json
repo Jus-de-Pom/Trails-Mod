@@ -1,0 +1,21 @@
+{
+  "name": "Using the Cartography Table",
+  "icon": "minecraft:cartography_table",
+  "category": "trails:items_concepts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "minecraft:cartography_table",
+      "title": "New Uses of the Cartography Table",
+      "text": "This mod improves the cartography table by giving it a new use !"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "This obscure block now has the ability to 'map' your trails. $(br2) Simply put a trail map in the top slot and a regular map in the bottom slot. This will save your trail in the world."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "But mapping your trails also does another cool thing. There will now be dots the color of the Trail map on the map you put in the bottom slot. These dots represent your trail beacons, so you never get lost walking along your trails."
+    }
+  ]
+}

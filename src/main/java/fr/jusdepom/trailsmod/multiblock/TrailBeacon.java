@@ -87,4 +87,8 @@ public class TrailBeacon {
     public Predicate<BlockState>[][] getBlockPredicates() {
         return blockPredicates;
     }
+
+    public int getLevel() {
+        return level;
+    }
 }

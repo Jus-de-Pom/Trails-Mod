@@ -1,23 +1,23 @@
 package fr.jusdepom.trailsmod.item.custom;
 
 import fr.jusdepom.trailsmod.multiblock.TrailBeacon;
+import fr.jusdepom.trailsmod.utils.BeaconsHelper;
 import fr.jusdepom.trailsmod.utils.VectorUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 import org.joml.Vector3i;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class TrailMapItem extends Item implements DyeableItem {
 
@@ -42,12 +42,13 @@ public class TrailMapItem extends Item implements DyeableItem {
             BlockState state = context.getWorld().getBlockState(position);
             if (state.isOf(Blocks.WATER_CAULDRON)) {
                 setColor(context.getStack(), 0xFFFFFF);
+                context.getPlayer().playSound(SoundEvents.ITEM_BUCKET_FILL, SoundCategory.MASTER, 1f, 1f);
                 return ActionResult.SUCCESS;
             }
 
             for (Direction direction : directions) {
-                boolean foundBeacon = isBeacon(position, context.getWorld(), direction);
-                if (!foundBeacon) continue;
+                TrailBeacon beacon = BeaconsHelper.getBeacon(position, context.getWorld(), direction);
+                if (beacon == null) continue;
 
                 ItemStack stack = context.getStack();
                 assert stack != null;
@@ -67,52 +68,13 @@ public class TrailMapItem extends Item implements DyeableItem {
                 positions.add(position.getZ());
 
                 compound.putIntArray(BEACONS_NBT, positions);
+                context.getPlayer().playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, SoundCategory.MASTER, 1f, 1f);
 
                 return ActionResult.SUCCESS;
             }
         }
 
         return ActionResult.PASS;
-    }
-
-    private boolean isBeacon(BlockPos pos, World world, Direction direction) {
-        BlockState state = world.getBlockState(pos);
-
-        for (TrailBeacon beacon : TrailBeacon.REGISTERED_BEACONS) {
-            Pair<Integer, Integer> startIndices = beacon.getStartIndices();
-            Predicate<BlockState>[][] predicates = beacon.getBlockPredicates();
-            Predicate<BlockState> startPredicate = predicates[startIndices.getLeft()][startIndices.getRight()];
-
-            if (!startPredicate.test(state)) continue;
-
-            boolean foundBeacon = true;
-
-            for (int i = 0; i < predicates.length; i++) {
-                Predicate<BlockState>[] line = predicates[i];
-
-                for (int j = 0; j < line.length; j++) {
-                    Predicate<BlockState> currentPredicate = line[j];
-                    int horizontalOffset = j - startIndices.getRight();
-                    int verticalOffset = startIndices.getLeft() - i;
-
-                    BlockPos currentBlockPos = pos.offset(direction, horizontalOffset).up(verticalOffset);
-                    BlockState currentState = world.getBlockState(currentBlockPos);
-
-                    if (currentPredicate == null) continue;
-
-                    if (!currentPredicate.test(currentState)) {
-                        foundBeacon = false;
-                        break;
-                    }
-                }
-
-                if (!foundBeacon) break;
-            }
-
-            if (foundBeacon) return true;
-        }
-
-        return false;
     }
 
     @Override

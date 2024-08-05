@@ -1,6 +1,6 @@
 {
   "name": "Trail Beacons",
-  "icon": "minecraft:cartography_table",
+  "icon": "minecraft:lantern",
   "category": "trails:items_concepts",
   "pages": [
     {
@@ -11,12 +11,13 @@
       "type": "patchouli:multiblock",
       "multiblock": {
         "pattern": [
-          [ "0" ],
-          [ "F" ]
+          [ "A0A" ],
+          [ "AFA" ]
         ],
         "mapping": {
           "0": "minecraft:torch",
-          "F": "#minecraft:wooden_fences"
+          "F": "#minecraft:wooden_fences",
+          "A": "minecraft:air"
         }
       },
       "text": "This is the level 1 Wooden Beacon. It is cheap, and a great starter"
@@ -26,11 +27,12 @@
       "multiblock": {
         "pattern": [
           [ " L " ],
-          [ "F0F" ]
+          [ "N0S" ]
         ],
         "mapping": {
           "L": "minecraft:lantern[hanging=false]",
-          "F": "#minecraft:wooden_fences",
+          "S": "#minecraft:wooden_fences[north=true]",
+          "N": "#minecraft:wooden_fences[south=true]",
           "0": "#minecraft:logs"
         }
       },
@@ -40,13 +42,14 @@
       "type": "patchouli:multiblock",
       "multiblock": {
         "pattern": [
-          [ "LSL" ],
-          [ "W0W" ]
+          [ "LAL" ],
+          [ "N0S" ]
         ],
         "mapping": {
           "L": "minecraft:lantern[hanging=false]",
-          "S": "#minecraft:wooden_slabs[type=bottom]",
-          "W": "#minecraft:walls",
+          "A": "#minecraft:wooden_slabs[type=bottom]",
+          "S": "#minecraft:walls[north=true]",
+          "N": "#minecraft:walls[south=true]",
           "0": "#minecraft:logs"
         }
       },
@@ -56,16 +59,20 @@
       "type": "patchouli:multiblock",
       "multiblock": {
         "pattern": [
-          [ "FFF" ],
+          [ "NCS" ],
           [ "LWL" ],
-          [ "S0S" ],
-          [ "W#W" ]
+          [ "A0A" ],
+          [ "B#Q" ]
         ],
         "mapping": {
-          "F": "#minecraft:wooden_fences",
+          "N": "#minecraft:wooden_fences[south=true]",
+          "C": "#minecraft:wooden_fences[south=true,north=true]",
+          "S": "#minecraft:wooden_fences[north=true]",
           "L": "minecraft:lantern[hanging=true]",
+          "B": "#minecraft:walls[south=true]",
+          "Q": "#minecraft:walls[north=true]",
           "W": "#minecraft:walls",
-          "S": "minecraft:smooth_stone_slab[type=bottom]",
+          "A": "minecraft:smooth_stone_slab[type=bottom]",
           "#": "#minecraft:logs[axis=y]",
           "0": "#minecraft:logs[axis=y]"
         }
@@ -76,16 +83,18 @@
       "type": "patchouli:multiblock",
       "multiblock": {
         "pattern": [
-          [ "ASA" ],
-          [ "ALA" ],
-          [ "AWA" ],
-          [ "A0A" ],
-          [ "W#W" ]
+          [ " D " ],
+          [ " L " ],
+          [ " W " ],
+          [ " 0 " ],
+          [ "N#S" ]
         ],
         "mapping": {
           "A": "minecraft:air",
-          "S": "minecraft:daylight_detector[inverted=true]",
+          "D": "minecraft:daylight_detector[inverted=true]",
           "L": "minecraft:redstone_lamp",
+          "N": "#minecraft:walls[south=true]",
+          "S": "#minecraft:walls[north=true]",
           "W": "#minecraft:walls",
           "#": "#minecraft:logs[axis=y]",
           "0": "#minecraft:logs[axis=y]"

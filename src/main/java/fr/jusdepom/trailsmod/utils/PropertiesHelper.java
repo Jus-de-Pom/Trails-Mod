@@ -32,7 +32,6 @@ public class PropertiesHelper {
     public static boolean checkProperty(BlockState state, Property<?> property, Object value) {
         if (!state.getProperties().contains(property)) return true;
 
-        Trails.LOGGER.info("Property was {}={}", property.getName(), value);
         if (property instanceof EnumProperty<?> enumProperty && value instanceof String string) {
             return state.get(enumProperty).asString().equalsIgnoreCase(string);
         } else {

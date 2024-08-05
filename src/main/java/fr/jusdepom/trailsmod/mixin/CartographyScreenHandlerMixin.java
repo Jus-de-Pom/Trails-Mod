@@ -2,6 +2,8 @@ package fr.jusdepom.trailsmod.mixin;
 
 import fr.jusdepom.trailsmod.item.ModItems;
 import fr.jusdepom.trailsmod.item.custom.TrailMapItem;
+import fr.jusdepom.trailsmod.trail.Trail;
+import fr.jusdepom.trailsmod.trail.TrailsState;
 import fr.jusdepom.trailsmod.utils.VectorUtils;
 import net.minecraft.block.MapColor;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,6 +21,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 import org.joml.Vector3i;
@@ -154,6 +157,7 @@ public abstract class CartographyScreenHandlerMixin extends ScreenHandler {
                 }
             }
 
+            boolean mappedBeacons = false;
             for (Vector3i pos : beaconPositions) {
                 int xOffset = pos.x - mapState.centerX;
                 int zOffset = pos.z - mapState.centerZ;
@@ -169,6 +173,25 @@ public abstract class CartographyScreenHandlerMixin extends ScreenHandler {
                 if (Math.abs(x - 1) < mapSize / 2) mapState.putColor(x - 1, z, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
                 if (Math.abs(z + 1) < mapSize / 2) mapState.putColor(x, z + 1, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
                 if (Math.abs(z - 1) < mapSize / 2) mapState.putColor(x, z - 1, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
+
+                mappedBeacons = true;
+            }
+
+            if (mappedBeacons) {
+                assert world.getServer() != null;
+                TrailsState state = TrailsState.getServerTrailsManager(world.getServer());
+
+                String name;
+                if (map.hasCustomName() && !state.trailExists(map.getName().getString())) name = map.getName().getString();
+                else return;
+
+                String id = name.toLowerCase().replaceAll(" ", "_");
+                List<BlockPos> beaconBlockPositions = VectorUtils.toBlockPos(beaconPositions);
+                Trail trail = new Trail(id, name, beaconBlockPositions);
+                trail.validate(world);
+
+                state.addTrail(trail);
+                state.printTrails();
             }
 
             this.sendContentUpdates();

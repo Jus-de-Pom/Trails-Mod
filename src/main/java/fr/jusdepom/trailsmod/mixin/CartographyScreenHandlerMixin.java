@@ -191,7 +191,8 @@ public abstract class CartographyScreenHandlerMixin extends ScreenHandler {
                 trail.validate(world);
 
                 state.addTrail(trail);
-                state.printTrails();
+
+                result.getOrCreateNbt().putString(TrailsState.MAPPED_TRAIL_NBT, id);
             }
 
             this.sendContentUpdates();

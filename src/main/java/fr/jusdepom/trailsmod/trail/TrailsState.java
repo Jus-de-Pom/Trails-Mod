@@ -22,6 +22,8 @@ public class TrailsState extends PersistentState {
     public static final String TRAIL_NAME_NBT = "name";
     public static final String TRAIL_BEACONS_NBT = "beacons";
 
+    public static final String MAPPED_TRAIL_NBT = "trail";
+
     private final List<Trail> trails = new LinkedList<>();
 
     public void addTrail(Trail trail) {

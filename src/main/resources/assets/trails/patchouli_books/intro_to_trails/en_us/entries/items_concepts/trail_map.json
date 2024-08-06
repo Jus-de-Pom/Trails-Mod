@@ -13,12 +13,12 @@
     {
       "type": "patchouli:crafting",
       "recipe": "trails:trail_map",
-      "title": "How to craft it",
+      "title": "Crafting the Trail Map",
       "text": "It is crafted as shown. $(br2) The trail map is also dyeable, and it is highly recommended that you name it in an anvil."
     },
     {
       "type": "patchouli:text",
-      "title": "How to use the Trail map",
+      "title": "Using the Trail Map",
       "text": "There are 3 steps to creating your trails: $(br2) - Build Trail Beacons along your path $(br2) - Click on all of them  with the Trail map. If you hear a drawing sound, the beacon has been registered. $(br) NOTE: You need to right click on the bottom most center block of a beacon. $(br2) - Merge your trail map with some regular maps in a cartography table to map your trails"
     }
   ]

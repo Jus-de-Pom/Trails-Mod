@@ -106,4 +106,8 @@ public class TrailsState extends PersistentState {
             Trails.LOGGER.info("Trail {} ; id: {}", trail.getName(), trail.getId());
         });
     }
+
+    public List<Trail> getTrails() {
+        return trails;
+    }
 }

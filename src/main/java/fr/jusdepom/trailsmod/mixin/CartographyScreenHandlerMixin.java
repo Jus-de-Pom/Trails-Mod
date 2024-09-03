@@ -169,10 +169,10 @@ public abstract class CartographyScreenHandlerMixin extends ScreenHandler {
 
                 mapState.putColor(x, z, mapColor.getRenderColorByte(MapColor.Brightness.HIGH));
 
-                if (Math.abs(x + 1) < mapSize / 2) mapState.putColor(x + 1, z, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
-                if (Math.abs(x - 1) < mapSize / 2) mapState.putColor(x - 1, z, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
-                if (Math.abs(z + 1) < mapSize / 2) mapState.putColor(x, z + 1, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
-                if (Math.abs(z - 1) < mapSize / 2) mapState.putColor(x, z - 1, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
+                if (Math.abs(x + 1) < 128) mapState.putColor(x + 1, z, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
+                if (Math.abs(x - 1) < 128) mapState.putColor(x - 1, z, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
+                if (Math.abs(z + 1) < 128) mapState.putColor(x, z + 1, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
+                if (Math.abs(z - 1) < 128) mapState.putColor(x, z - 1, mapColor.getRenderColorByte(MapColor.Brightness.NORMAL));
 
                 mappedBeacons = true;
             }
